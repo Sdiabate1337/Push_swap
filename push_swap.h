@@ -13,6 +13,11 @@
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
 #include <stdlib.h>
+#include <string.h>
+ #include <ctype.h>
+ #include <unistd.h>
+ #include <stdio.h>
+ #include <limits.h>
 typedef struct
 {
     int maxsize;
@@ -21,13 +26,24 @@ typedef struct
 }   Stack;
 
 Stack* ft_newStack(int maxsize);
-Stack *ft_createStackWithArg(int argc, char *argv);
+Stack *ft_createStackWithArg(int argc, char *argv[]);
 void  push(Stack *stack, int item);
 int isEmpty(Stack *stack);
 int pop(Stack *stack);
 int isFull(Stack *stack);
 void    ft_sb(Stack *stack_b);
 void    ft_sa(Stack *stack_a);
+
+int ft_hasDuplicate(char *argv[]);
+void ft_error();
+int ft_isZero(char *arg);
+int ft_isNum(char *arg);
+int ft_correctInput(char *argv[]);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putchar_fd(char c, int fd);
+void printStack(Stack* stack);
+int isOverflow(char *str);
+
 
 
 #endif

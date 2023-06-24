@@ -21,17 +21,17 @@ int isEmpty(Stack *stack)
 
 int isFull(Stack *stack)
 {
-    if (stack->top == stack->maxsize)
+    if (stack->top == stack->maxsize - 1)
         return(1);
     return (0);
 }
 
 void  push(Stack *stack, int item)
-  {
+{
     if (isFull(stack))
         return ;
     stack->items[++stack->top] = item;
-  }
+}
 
 int pop(Stack *stack)
 {

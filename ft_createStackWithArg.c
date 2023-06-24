@@ -13,16 +13,18 @@
 #include "push_swap.h"
 #include <stdlib.h>
 
-Stack *ft_createStackWithArg(int argc, char *argv)
+Stack *ft_createStackWithArg(int argc, char* argv[])
 {
-    Stack   *stack ;
-
-    stack = (Stack*)malloc(sizeof(Stack));
-    if (!stack)
-        return (NULL);
-    stack->maxsize = argc;
-    stack->top = argv[0];
-    stack->items = argv;
-    return (stack);
-    
+    Stack *stack;
+    int i; 
+  
+    i = argc - 1;
+    stack = ft_newStack(argc - 1);
+    while (i > 0)
+    {
+        stack->items[++stack->top] = atoi(argv[i]);
+        i--;
+    }
+    return stack;
 }
+
