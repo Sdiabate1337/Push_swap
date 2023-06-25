@@ -41,9 +41,12 @@ int ft_isNum(char *arg);
 int ft_correctInput(char *argv[]);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
-void printStack(Stack* stack);
-int isOverflow(char *str);
+void ft_printStack(Stack* stack);
+int ft_atoi(char *str);
 
+int is_sorted(Stack *stack);
+void    ft_simpleSort(Stack *stack, int size);
+void    ft_complexSort(Stack *stack, int size);
 
 
 #endif

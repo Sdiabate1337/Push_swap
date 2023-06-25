@@ -22,7 +22,7 @@ Stack *ft_createStackWithArg(int argc, char* argv[])
     stack = ft_newStack(argc - 1);
     while (i > 0)
     {
-        stack->items[++stack->top] = atoi(argv[i]);
+        stack->items[++stack->top] = ft_atoi(argv[i]);
         i--;
     }
     return stack;

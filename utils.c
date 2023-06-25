@@ -89,45 +89,6 @@ int ft_isNum(char *arg)
     return 1;
 }
 
-/*
-    *check the if the arg[i] overflow the int type
-*/
-#include <string.h>
-
-int isOverflow(char *str) {
-    char *maxValue;
-    int maxDigits;
-    int numDigits;
-    int isNegative;
-
-    numDigits = 0;
-    isNegative = 0;
-    if (*str == '\0')
-        return 0;
-    if (*str == '-') {
-        isNegative = 1;
-        str++;
-       numDigits++;
-    }
-    maxDigits = isNegative ? 11 : 10;
-    maxValue = isNegative ? "-2147483648" : "2147483647";
-    while (*str == '0')
-        str++;
-    if (strlen(str) > maxDigits) 
-        return 1;
-    if (strlen(str) < maxDigits) 
-        return 0;
-    while (*str != '\0' && numDigits < maxDigits) {
-        if (*str - '0' > maxValue[numDigits] - '0')
-            return 1;
-        numDigits++;
-        str++;
-    }
-
-    return 0;
-}
-
-
 
 
 int ft_correctInput(char *argv[])
@@ -141,8 +102,6 @@ int ft_correctInput(char *argv[])
     {
         if (!ft_isNum(argv[i]))
             return (0);
-        if (isOverflow(argv[i]))
-            return (0);
         zero += ft_isZero(argv[i]);
     }
     if (zero > 1)
@@ -152,17 +111,49 @@ int ft_correctInput(char *argv[])
     return (1);
 }
 
-void printStack(Stack* stack)
+void ft_printStack(Stack* stack)
 {
+    int i;
+
+    i = stack->top;
+    printf("size : %d \n",  stack->top + 1);
     if (isEmpty(stack))
     {
         printf("Stack is empty.\n");
         return;
     }
-    
     printf("Stack elements:\n");
-    for (int i = stack->top; i >= 0; i--)
+    while (i >= 0)
     {
-        printf("%d\n", stack->items[i]);
+        printf("%d: %d\n", i , stack->items[i]);
+        i--;
     }
+}
+
+
+int ft_atoi(char *str)
+{
+    long      num;
+    int      i;
+    int     sign;
+
+    num = 0;
+    i = 0;
+    sign = 1;
+    if (str[i] == '-' || str[i] == '+')
+    {
+        if (str[i++] == '-')
+            sign *= -1;
+        if (str[i] < '0' || str[i] > '9')
+            ft_error();
+    }
+    while (str[i])
+    {
+        if (str[i] < '0' || str[i] > '9')
+            ft_error();
+        num = num * 10 + (str[i++] - '0');
+    }
+    if ((sign == 1 && num > INT_MAX) || (sign == -1 && num > (unsigned int)INT_MAX + 1))
+         ft_error();
+    return (sign * num);
 }
