@@ -46,25 +46,38 @@ void ft_sort_tree(Stack **stack)
 }
 
 
-void    ft_simpleSort(Stack *stack, int size)
+void    ft_simpleSort(Stack *stack,Stack *stack_b, int size)
 {
     if (size <= 1)
         return;
-    else if (size == 2)
+    if (size == 2)
     {
         ft_sa(stack);
         return;
     }
-    else if (size == 3)
+    if (size == 3)
         ft_sort_tree(&stack);
-    else
-        ft_sort_tree_plus(&stack);
+    ft_sort_tree_plus(&stack, &stack_b, size);
 }
 
-void    ft_sort_tree_plus(Stack **stack)
+void    ft_sort_tree_plus(Stack **stack, Stack **stack_b, int size)
 {
-    printf("tree+plus\n");
+    ft_recu_pb(*stack_b, *stack, size - 3);
+    ft_sort_tree(stack);
+    ft_pa(*stack, *stack_b);
+    ft_ra(*stack);
+    ft_pa(*stack, *stack_b);
+
 }
+
+void ft_recu_pb(Stack *stack_b, Stack *stack ,int n)
+{
+    if (n <= 0)
+        return ;
+    ft_pb(stack_b, stack);
+    ft_recu_pb(stack_b, stack, n - 1);
+}
+
 
 void    ft_complexSort(Stack *stack, int size)
 {
