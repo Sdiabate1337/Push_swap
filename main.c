@@ -29,7 +29,12 @@ int main(int argc, char *argv[])
       ft_error();
     stack_a = ft_createStackWithArg(argc, argv);
     stack_b = ft_newStack(argc);
- 
+    /*
+        printf("*******stack non sorted\n");
+    ft_printStack(stack_a);
+    ft_printStack(stack_b);
+    */
+
     stack_a_size = stack_a->top + 1;
     if (is_sorted(stack_a))
         return (0);
@@ -37,8 +42,12 @@ int main(int argc, char *argv[])
         ft_simpleSort(stack_a, stack_a_size);
     else
         ft_complexSort(stack_a, stack_a_size);
-    //ft_printStack(stack_a);
-    //ft_printStack(stack_b);
+    
+    /*
+    printf("*********stack  sorted");
+    ft_printStack(stack_a);
+    ft_printStack(stack_b);
+    */
     
 
    

@@ -33,6 +33,8 @@ int pop(Stack *stack);
 int isFull(Stack *stack);
 void    ft_sb(Stack *stack_b);
 void    ft_sa(Stack *stack_a);
+void    ft_ra(Stack *stack_a);
+void    ft_rra(Stack *stack_a);
 
 int ft_hasDuplicate(char *argv[]);
 void ft_error();
@@ -47,6 +49,8 @@ int ft_atoi(char *str);
 int is_sorted(Stack *stack);
 void    ft_simpleSort(Stack *stack, int size);
 void    ft_complexSort(Stack *stack, int size);
+void    ft_sort_tree_plus(Stack **stack);
+void ft_sort_tree(Stack **stack);
 
 
 #endif

@@ -20,5 +20,6 @@ void    ft_pa(Stack *stack_a, Stack *stack_b)
     {
         item = pop(stack_b);
         push(stack_a, item);
+        ft_putstr_fd("pa\n", 1);
     }
 }

@@ -20,5 +20,6 @@ void    ft_pb(Stack *stack_b, Stack *stack_a)
     {
         item = pop(stack_a);
         push(stack_b, item);
+        ft_putstr_fd("pb\n", 1);
     }
 }

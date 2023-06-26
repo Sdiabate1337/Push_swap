@@ -27,5 +27,6 @@ void    ft_ra(Stack *stack_a)
             i--;
         }
         stack_a->items[0] = top;
+        ft_putstr_fd("ra\n", 1);
     }
 }

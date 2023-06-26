@@ -21,5 +21,6 @@ void    ft_sb(Stack *stack_b)
         tmp = stack_b->items[stack_b->top];
          stack_b->items[stack_b->top] = stack_b->items[stack_b->top - 1];
          stack_b->items[stack_b->top - 1] = tmp;
+         ft_putstr_fd("sb\n", 1);
     }
 }

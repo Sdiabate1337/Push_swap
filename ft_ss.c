@@ -16,4 +16,5 @@ void    ft_ss(Stack *stack_a, Stack *stack_b)
 {
     ft_sa(stack_a);
     ft_sa(stack_b);
+    ft_putstr_fd("ss\n", 1);
 }

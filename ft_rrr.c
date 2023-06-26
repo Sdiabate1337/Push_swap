@@ -16,4 +16,5 @@ void    ft_rrr(Stack *stack_a, Stack *stack_b)
 {
     ft_rra(stack_a);
     ft_rrb(stack_b);
+    ft_putstr_fd("rrr\n", 1);
 }
