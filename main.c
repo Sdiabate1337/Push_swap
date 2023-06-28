@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     printf("*******stack non sorted\n");
     ft_printStack(stack_a);
     ft_printStack(stack_b);
- printf("**********************************************************\n");
+    printf("**********************************************************\n");
    
     stack_a_size = stack_a->top + 1;
     if (is_sorted(stack_a))
