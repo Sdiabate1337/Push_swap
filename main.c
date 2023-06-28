@@ -33,20 +33,19 @@ int main(int argc, char *argv[])
     printf("*******stack non sorted\n");
     ft_printStack(stack_a);
     ft_printStack(stack_b);
-
+ printf("**********************************************************\n");
    
     stack_a_size = stack_a->top + 1;
     if (is_sorted(stack_a))
         return (0);
-    if (stack_a_size <= 5)
+    if (stack_a_size <= 10)
         ft_simpleSort(stack_a, stack_b, stack_a_size);
     else
         ft_complexSort(stack_a, stack_a_size);
 
-    printf("*********stack  sorted");
+    printf("*******stack  sorted\n");
     ft_printStack(stack_a);
-    ft_printStack(stack_b) ;
-  
+    ft_printStack(stack_b);
     
 
    

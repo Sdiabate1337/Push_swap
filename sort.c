@@ -62,15 +62,67 @@ void    ft_simpleSort(Stack *stack,Stack *stack_b, int size)
 
 void    ft_sort_tree_plus(Stack **stack, Stack **stack_b, int size)
 {
-    ft_recu_pb(*stack_b, *stack, size - 3);
-    ft_sort_tree(stack);
-    ft_pa(*stack, *stack_b);
-    ft_ra(*stack);
-    ft_pa(*stack, *stack_b);
+    int min_id;
 
+    min_id = 0;
+    while (!is_sorted(*stack) &&  size != 3 )
+    {
+            min_id = find_smallest_id(*stack);
+            smart_ra(*stack, min_id);
+            ft_printStack(*stack);
+            ft_pb(*stack_b, *stack);
+            ft_printStack(*stack_b);
+            size--;
+    }
+    if (size == 3 && !is_sorted(*stack))
+            ft_sort_tree(stack);
+    while (!isEmpty(*stack_b))
+        ft_pa(*stack, *stack_b); 
 }
 
-void ft_recu_pb(Stack *stack_b, Stack *stack ,int n)
+int find_smallest_id(Stack *stack)
+{
+    int i;
+    int min;
+    int minIndex;
+
+    i = 1;
+    minIndex = 0;
+    min = stack->items[0];
+    while(i <= stack->top)
+    {
+        if (min > stack->items[i])
+        {
+              min = stack->items[i];
+              minIndex = i;
+        }  
+        i++;
+    }
+    return (minIndex);
+}
+
+void    smart_ra(Stack *stack, int min_id)
+{
+    int size;
+    int min;
+
+    size = stack->top + 1;
+    min = stack->items[min_id];
+    printf("******************** min_id = %d ************************\n", min_id);
+
+    if (min_id == stack->top)
+        return ;
+    while (min != stack->items[stack->top])
+    {
+        if (min_id > size / 2)
+            ft_ra(stack);
+        else
+            ft_rra(stack);
+    }
+}
+
+/*
+    void ft_recu_pb(Stack *stack_b, Stack *stack ,int n)
 {
     if (n <= 0)
         return ;
@@ -78,6 +130,7 @@ void ft_recu_pb(Stack *stack_b, Stack *stack ,int n)
     ft_recu_pb(stack_b, stack, n - 1);
 }
 
+*/
 
 void    ft_complexSort(Stack *stack, int size)
 {
