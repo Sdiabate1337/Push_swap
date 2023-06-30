@@ -40,14 +40,11 @@ int main(int argc, char *argv[])
         return (0);
     if (stack_a_size <= 10)
         ft_simpleSort(stack_a, stack_b, stack_a_size);
-    else
-        ft_complexSort(stack_a, stack_a_size);
-
+    else if (stack_a_size > 10)
+        ft_complexSort(stack_a, stack_b, stack_a_size);
     printf("*******stack  sorted\n");
     ft_printStack(stack_a);
     ft_printStack(stack_b);
-    
 
-   
 return (0);
 }

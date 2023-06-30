@@ -157,3 +157,33 @@ int ft_atoi(char *str)
          ft_error();
     return (sign * num);
 }
+
+char	*ft_strdup(char *src)
+{
+	char	*dest;
+	size_t	size;
+	int		i;
+
+	i = 0;
+	size = ft_strlen((const char *)src);
+	dest = (char *)malloc(sizeof(char) * size + 1);
+	if (!dest)
+		return (0);
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
+int ft_strlen(const char *str)
+{
+    int i;
+
+    i = 0;
+    while (str[i] != '\0')
+        i++;
+    return (i);
+}

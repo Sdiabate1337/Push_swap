@@ -24,7 +24,7 @@ typedef struct
     int top;
     int *items;
 }   Stack;
-
+int ft_strlen(const char *str);
 Stack* ft_newStack(int maxsize);
 Stack *ft_createStackWithArg(int argc, char *argv[]);
 void  push(Stack *stack, int item);
@@ -54,11 +54,15 @@ int ft_atoi(char *str);
 
 int is_sorted(Stack *stack);
 void    ft_simpleSort(Stack *stack_a,Stack *stack_b, int size);
-void    ft_complexSort(Stack *stack, int size);
+void    ft_complexSort(Stack *stack, Stack *stack_b, int size);
 void    ft_sort_tree_plus(Stack **stack, Stack **stack_b, int size);
 void ft_sort_tree(Stack **stack);
 void ft_recu_pb(Stack *stack_b,Stack *stack ,int n);
 int find_smallest_id(Stack *stack);
 void    smart_ra(Stack *stack, int min_id);
+void    ft_simplify(Stack **stack, int size);
+void    ft_insertSort(int *ar, int size);
+char	*ft_strdup(char *src);
+void    ft_conver2SortId(int *ar1, int *ar2, int size);
 
 #endif

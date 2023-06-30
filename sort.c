@@ -132,7 +132,68 @@ void    smart_ra(Stack *stack, int min_id)
 
 */
 
-void    ft_complexSort(Stack *stack, int size)
+void    ft_complexSort(Stack *stack, Stack *stack_b, int size)
 {
-    printf("complex");
+   
+    ft_simplify(&stack, size);
+    
+   
+}
+
+void    ft_simplify(Stack **stack, int size)
+{
+    int    *cpy;
+    Stack  *s;
+    int     i;
+
+    cpy = (int*)malloc(size * sizeof(int));
+    if (!cpy)
+        return ;
+    s = *stack;
+    i = -1;
+    while (++i < size )
+        cpy[i] = s->items[i];
+    ft_insertSort(cpy, size);
+    ft_conver2SortId(s->items, cpy, size);
+}
+
+void    ft_conver2SortId(int *ar1, int *ar2, int size)
+{
+    int i;
+    int j;
+
+    i = -1;
+    while (++i < size)
+    {
+        j = -1;
+        while (++j < size)
+        {
+            if (ar1[i] == ar2[j])
+            {
+                ar1[i] = j;
+                break ;
+            }
+        }                                                                                                                                                                                                                                                                           
+    }
+}
+
+void    ft_insertSort(int *ar, int size)
+{
+    int i;
+    int key;
+    int j;
+
+    i = 1;
+    while (i < size)
+    {
+        key = ar[i];
+        j = i - 1;
+        while (j >= 0 && ar[j] > key)
+        {
+            ar[j + 1] = ar[j];
+            j--;
+        }
+        ar[j + 1] = key;
+        i++;
+    }
 }
