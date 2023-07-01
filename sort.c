@@ -32,7 +32,6 @@ void ft_sort_tree(Stack **stack)
     if (s->items[s->top - 1] < s->items[0] && s->items[s->top - 1] < s->items[s->top]
         && s->items[s->top] > s->items[0])
             ft_ra(s);
-   
     if (s->items[s->top - 1] > s->items[0] && s->items[s->top - 1] > s->items[s->top]
         && s->items[s->top] < s->items[0])
     {
@@ -69,9 +68,7 @@ void    ft_sort_tree_plus(Stack **stack, Stack **stack_b, int size)
     {
             min_id = find_smallest_id(*stack);
             smart_ra(*stack, min_id);
-            ft_printStack(*stack);
             ft_pb(*stack_b, *stack);
-            ft_printStack(*stack_b);
             size--;
     }
     if (size == 3 && !is_sorted(*stack))
@@ -108,8 +105,6 @@ void    smart_ra(Stack *stack, int min_id)
 
     size = stack->top + 1;
     min = stack->items[min_id];
-    printf("******************** min_id = %d ************************\n", min_id);
-
     if (min_id == stack->top)
         return ;
     while (min != stack->items[stack->top])
@@ -134,10 +129,43 @@ void    smart_ra(Stack *stack, int min_id)
 
 void    ft_complexSort(Stack *stack, Stack *stack_b, int size)
 {
+    int max_num;
+    int bit_num;
    
+    bit_num = 0;
+    max_num = size - 1;
     ft_simplify(&stack, size);
-    
+    while ((max_num >> bit_num) != 0)
+        bit_num++;
+    ft_radixSort(stack, stack_b, bit_num);
    
+}
+
+void    ft_radixSort(Stack *stack, Stack *stack_b, int bit_num)
+{
+    int i;
+    int j;
+    int num;
+    int size;
+
+    i = 0;
+    size = stack->top + 1;
+    while (i < bit_num)
+    {
+        j = 0;
+        while (j < size)
+        {
+            num = stack->items[stack->top];
+            if (((num >> i) & 1) == 1)
+                ft_ra(stack);
+            if (((num >> i) & 1) == 0)
+                ft_pb(stack_b, stack);
+            j++;
+        }
+        while (!isEmpty(stack_b))
+           ft_pa(stack, stack_b);
+        i++;
+    }
 }
 
 void    ft_simplify(Stack **stack, int size)
@@ -151,7 +179,7 @@ void    ft_simplify(Stack **stack, int size)
         return ;
     s = *stack;
     i = -1;
-    while (++i < size )
+    while (++i < size)
         cpy[i] = s->items[i];
     ft_insertSort(cpy, size);
     ft_conver2SortId(s->items, cpy, size);

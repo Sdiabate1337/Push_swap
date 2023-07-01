@@ -64,5 +64,6 @@ void    ft_simplify(Stack **stack, int size);
 void    ft_insertSort(int *ar, int size);
 char	*ft_strdup(char *src);
 void    ft_conver2SortId(int *ar1, int *ar2, int size);
+void    ft_radixSort(Stack *stack, Stack *stack_b, int bit_num);
 
 #endif
