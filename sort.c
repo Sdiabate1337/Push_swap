@@ -137,11 +137,10 @@ void    ft_complexSort(Stack *stack, Stack *stack_b, int size)
     ft_simplify(&stack, size);
     while ((max_num >> bit_num) != 0)
         bit_num++;
-    ft_radixSort(stack, stack_b, bit_num);
-   
+    ft_radixSort(&stack, &stack_b, bit_num);
 }
 
-void    ft_radixSort(Stack *stack, Stack *stack_b, int bit_num)
+void    ft_radixSort(Stack **stack, Stack **stack_b, int bit_num)
 {
     int i;
     int j;
@@ -149,21 +148,21 @@ void    ft_radixSort(Stack *stack, Stack *stack_b, int bit_num)
     int size;
 
     i = 0;
-    size = stack->top + 1;
-    while (i < bit_num)
+    size = (*stack)->top + 1;
+    while (i < bit_num && !is_sorted(*stack))
     {
         j = 0;
         while (j < size)
         {
-            num = stack->items[stack->top];
+            num = (*stack)->items[(*stack)->top];
             if (((num >> i) & 1) == 1)
-                ft_ra(stack);
+                ft_ra(*stack);
             if (((num >> i) & 1) == 0)
-                ft_pb(stack_b, stack);
+                ft_pb(*stack_b, *stack);
             j++;
         }
-        while (!isEmpty(stack_b))
-           ft_pa(stack, stack_b);
+        while (!isEmpty(*stack_b))
+           ft_pa(*stack, *stack_b);
         i++;
     }
 }

@@ -20,7 +20,7 @@ Stack* ft_newStack(int maxsize)
         return (NULL);
     stack->maxsize = maxsize;
     stack->top = -1;
-    stack->items = (int*)malloc(sizeof(int) * maxsize);
+    stack->items = (int*)malloc(sizeof(int*) * maxsize);
     return (stack);
 
 }

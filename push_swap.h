@@ -51,6 +51,13 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
 void ft_printStack(Stack* stack);
 int ft_atoi(char *str);
+int	ft_strcmp(char *s1, char *s2);
+char	**check_string(int *argc, char **argv);
+char	**ft_split(char const *s, char c);
+static void	ft_free(char **strs, int j);
+static int	ft_size_word(char const *s, char c, int i);
+static int	ft_count_word(char const *s, char c);
+char    *ft_substr(char const *s, unsigned int start, size_t len);
 
 int is_sorted(Stack *stack);
 void    ft_simpleSort(Stack *stack_a,Stack *stack_b, int size);
@@ -64,6 +71,6 @@ void    ft_simplify(Stack **stack, int size);
 void    ft_insertSort(int *ar, int size);
 char	*ft_strdup(char *src);
 void    ft_conver2SortId(int *ar1, int *ar2, int size);
-void    ft_radixSort(Stack *stack, Stack *stack_b, int bit_num);
+void    ft_radixSort(Stack **stack, Stack **stack_b, int bit_num);
 
 #endif
