@@ -44,7 +44,6 @@ void ft_sort_tree(Stack **stack)
     return ;
 }
 
-
 void    ft_simpleSort(Stack *stack,Stack *stack_b, int size)
 {
     if (size <= 1)
@@ -92,7 +91,7 @@ int find_smallest_id(Stack *stack)
         {
               min = stack->items[i];
               minIndex = i;
-        }  
+        }
         i++;
     }
     return (minIndex);

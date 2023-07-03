@@ -24,9 +24,12 @@ typedef struct
     int top;
     int *items;
 }   Stack;
+void print2D(char **par);
 int ft_strlen(const char *str);
+int ft_isdigit(char c);
 Stack* ft_newStack(int maxsize);
-Stack *ft_createStackWithArg(int argc, char *argv[]);
+Stack *ft_createStackWithArg(int argc, char **param);
+char    **argv_cpy(char **argv, int *argc);
 void  push(Stack *stack, int item);
 int isEmpty(Stack *stack);
 int pop(Stack *stack);
