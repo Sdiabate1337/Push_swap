@@ -58,3 +58,22 @@ void    ft_error()
     ft_putstr_fd("Error\n", 2);
     exit(3);
 }
+
+/*
+    #include <stdlib.h>
+
+void ft_freeParam(char **param)
+{
+    int i;
+    
+    i = 0;
+    if (param == NULL) {
+        return;
+    }
+    while (param[i] != NULL) {
+        free(param[i]);
+        i++;
+    }
+    free(param);
+}
+*/

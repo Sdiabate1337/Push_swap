@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
-#include <stdio.h>
 
 int main(int argc, char **argv)
 {
@@ -36,6 +35,7 @@ int main(int argc, char **argv)
         ft_simpleSort(stack_a, stack_b, stack_a_size);
     else if (stack_a_size > 10)
         ft_complexSort(stack_a, stack_b, stack_a_size);
+    
 return (0);
 }
 

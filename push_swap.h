@@ -24,6 +24,7 @@ typedef struct
     int top;
     int *items;
 }   Stack;
+
 void print2D(char **par);
 int ft_strlen(const char *str);
 int ft_isdigit(char c);
@@ -45,6 +46,7 @@ void    ft_pa(Stack *stack_a, Stack *stack_b);
 void    ft_rr(Stack *stack_a, Stack *stack_b);
 void    ft_rrr(Stack *stack_a, Stack *stack_b);
 
+void ft_freeParam(char **param);
 int ft_hasDuplicate(char *argv[]);
 void ft_error();
 int ft_isZero(char *arg);
