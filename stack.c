@@ -12,37 +12,37 @@
 #include "push_swap.h"
 #include <stdlib.h>
 
-int isEmpty(Stack *stack)
+int	is_empty(t_Stack *stack)
 {
-    if (stack->top == -1)
-        return (1);
-    return (0);
+	if (stack->top == -1)
+		return (1);
+	return (0);
 }
 
-int isFull(Stack *stack)
+int	is_full(t_Stack *stack)
 {
-    if (stack->top == stack->maxsize - 1)
-        return(1);
-    return (0);
+	if (stack->top == stack->maxsize - 1)
+		return (1);
+	return (0);
 }
 
-void  push(Stack *stack, int item)
+void	push(t_Stack *stack, int item)
 {
-    if (isFull(stack))
-        return ;
-    stack->items[++stack->top] = item;
+	if (is_full(stack))
+		return ;
+	stack->items[++stack->top] = item;
 }
 
-int pop(Stack *stack)
+int	pop(t_Stack *stack)
 {
-    if (isEmpty(stack))
-        return (-1);
-    return stack->items[stack->top--];
+	if (is_empty(stack))
+		return (-1);
+	return (stack->items[stack->top--]);
 }
 
-int peek(Stack *stack)
+int	peek(t_Stack *stack)
 {
-    if (isEmpty(stack))
-        return (-1);
-    return stack->items[stack->top];
+	if (is_empty(stack))
+		return (-1);
+	return (stack->items[stack->top]);
 }

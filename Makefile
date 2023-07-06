@@ -1,17 +1,19 @@
 NAME = push_swap
-CC = cc
-FLAGS = -Wall -Wextra -Werror
-SRC = create_stack.c input_check.c main.c push.c rotate.c sort.c \
-	  reverse_rotate.c stack.c swap.c utils.c utils2.c utils3.c
+CC = gcc
+FLAGS = -Wall -Wextra -Werror -fsanitize=address
+SRC = main.c input_check.c create_stack.c utils.c utils2.c utils3.c \
+	  push.c rotate.c simple_sort.c complexe_sort.c reverse_rotate.c stack.c swap.c 
+	  
 OBJ = $(SRC:.c=.o)
+INC = -I push_swap.h
 
 green = \033[0;32m
 
 all: $(NAME)
+
 $(NAME): $(OBJ)
-		@echo "$(green)Creating $@"
-		@ar rc $(NAME) $(OBJ)
-		@ranlib $(NAME)
+		$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+		@echo "$(green)Created $@"
 
 clean:
 		@rm -f $(OBJ)
@@ -21,4 +23,4 @@ fclean: clean
 
 re: all clean
 
-.PHONY: all clen fclean re
+.PHONY: all clean fclean re

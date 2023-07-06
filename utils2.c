@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils2.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sdiabate <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/06 12:27:07 by sdiabate          #+#    #+#             */
+/*   Updated: 2023/07/06 12:27:16 by sdiabate         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static int	ft_count_word(char const *s, char c)
+int	ft_count_word(char const *s, char c)
 {
 	int	i;
 	int	word;
@@ -21,7 +33,7 @@ static int	ft_count_word(char const *s, char c)
 	return (word);
 }
 
-static int	ft_size_word(char const *s, char c, int i)
+int	ft_size_word(char const *s, char c, int i)
 {
 	int	size;
 
@@ -34,7 +46,7 @@ static int	ft_size_word(char const *s, char c, int i)
 	return (size);
 }
 
-static void	ft_free(char **strs, int j)
+void	ft_free(char **strs, int j)
 {
 	if (!*strs)
 	{
@@ -72,29 +84,29 @@ char	**ft_split(char const *s, char c)
 	return (strs);
 }
 
-char    *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-        size_t  i;
-        size_t  j;
-        char    *str;
+	size_t	i;
+	size_t	j;
+	char	*str;
 
-        if (!s || len < 0)
-                return (0);
-        if (!*s || start >= ft_strlen(s))
-                return (ft_strdup(""));
-        if (len > (ft_strlen(s) - start))
-                str = malloc(sizeof(char) * (ft_strlen((char *)s) - start + 1));
-        else
-                str = (char *)malloc(sizeof(char) * (len + 1));
-        if (!str)
-                return (0);
-        i = -1;
-        j = 0;
-        while (s[++i])
-        {
-                if (i >= start && j < len)
-                        str[j++] = s[i];
-        }
-        str[j] = 0;
-        return (str);
+	if (!s || len < 0)
+		return (0);
+	if (!*s || (int)start >= ft_strlen(s))
+		return (ft_strdup(""));
+	if (len > (ft_strlen(s) - start))
+		str = malloc(sizeof(char) * (ft_strlen((char *)s) - start + 1));
+	else
+		str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (0);
+	i = -1;
+	j = 0;
+	while (s[++i])
+	{
+		if (i >= start && j < len)
+			str[j++] = s[i];
+	}
+	str[j] = 0;
+	return (str);
 }

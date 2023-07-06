@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sdiabate <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/06 12:26:05 by sdiabate          #+#    #+#             */
+/*   Updated: 2023/07/06 12:26:15 by sdiabate         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_putchar_fd(char c, int fd)
@@ -22,7 +34,7 @@ void	ft_putstr_fd(char *s, int fd)
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
@@ -50,18 +62,18 @@ char	*ft_strdup(char *src)
 	return (dest);
 }
 
-int ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (str[i] != '\0')
-        i++;
-    return (i);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }
 /*
 
-void ft_printStack(Stack* stack)
+void	ft_printStack(Stack* stack)
 {
     int i;
 
@@ -70,7 +82,7 @@ void ft_printStack(Stack* stack)
     if (isEmpty(stack))
     {
         printf("Stack is empty.\n");
-        return;
+        return ;
     }
     printf("Stack elements:\n");
     while (i >= 0)
@@ -80,10 +92,12 @@ void ft_printStack(Stack* stack)
     }
 }
 
-void print2D(char **par)
+void	print2D(char **par)
 {
-    int i = 0;
+	int	i;
     int j;
+
+    i = 0;
     while (par[i])
     {
         j = 0;
