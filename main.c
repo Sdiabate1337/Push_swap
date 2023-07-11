@@ -11,6 +11,22 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
+int	is_sorted(t_Stack *stack)
+{
+	int	i;
+
+	i = stack->top;
+	if (is_empty(stack))
+		return (1);
+	while (i > 0)
+	{
+		if (stack->items[i] > stack->items[i - 1])
+			return (0);
+		i--;
+	}
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	t_Stack	*stack_a;
@@ -36,7 +52,11 @@ int	main(int argc, char **argv)
 		ft_simple_sort(stack_a, stack_b, stack_a_size);
 	else if (stack_a_size > 10)
 		ft_complex_sort(stack_a, stack_b, stack_a_size);
+	ft_free_stack(stack_a);
+	ft_free_stack(stack_b);
+	//_CrtDumpMemoryLeaks();
 	return (0);
+
 }
 /* check if there are an error then print "error" message
         * check if  certains paramètres ne sont pas des nombres

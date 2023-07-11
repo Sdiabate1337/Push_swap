@@ -71,6 +71,16 @@ void	ft_error(void)
 	exit(3);
 }
 
+void ft_free_stack(t_Stack *stack)
+{
+    if (stack != NULL)
+    {
+        if (stack->items != NULL)
+            free(stack->items);
+        free(stack);
+    }
+}
+
 /*
     #include <stdlib.h>
 

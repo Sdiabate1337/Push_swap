@@ -11,52 +11,42 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-int	is_sorted(t_Stack *stack)
+int	find_highest_id(t_Stack *stack)
 {
+	int	high_id;
+	int	high;
 	int	i;
 
-	i = stack->top;
-	if (is_empty(stack))
-		return (1);
-	while (i > 0)
+	i = 1;
+	high_id = 0;
+	high = stack->items[0];
+	while (i <= stack->top)
 	{
-		if (stack->items[i] > stack->items[i - 1])
-			return (0);
-		i--;
+		if (high < stack->items[i])
+		{
+			high = stack->items[i];
+			high_id = i;
+		}
+		i++;
 	}
-	return (1);
+	return (high_id);
 }
+
 
 void	ft_sort_tree(t_Stack **stack)
 {
 	t_Stack	*s;
-	int		top;
-	int		*items;
+	int	high_id;
 
 	s = *stack;
-	top = s->top;
-	items = s->items;
-	if (items[top] > items[top - 1] && items[top] < items[0]
-		&& items[top - 1] < items[0])
-		ft_sa(s);
-	if (items[top - 1] > items[0] && items[top] > items[0]
-		&& items[top - 1] < items[top])
-	{
-		ft_sa(s);
-		ft_rra(s);
-	}
-	if (items[top - 1] < items[0] && items[top - 1] < items[top]
-		&& items[top] > items[0])
+	high_id = 0;
+	high_id = find_highest_id(s);
+	if (high_id == s->top)
 		ft_ra(s);
-	if (items[top - 1] > items[0] && items[top - 1] > items[top]
-		&& items[top] < items[0])
-	{
-		ft_sa(s);
-		ft_ra(s);
-	}
-	if (items[top - 1] > items[0] && items[top - 1] > items[top]
-		&& items[top] > items[0])
+	else if (high_id == s->top - 1)
 		ft_rra(s);
+	if (s->items[s->top] > s->items[s->top - 1])
+		ft_sa(s);
 }
 
 void	ft_simple_sort(t_Stack *stack, t_Stack *stack_b, int size)

@@ -59,7 +59,7 @@ char	**check_string(int *argc, char **argv)
 	if (!(argv[0][0]))
 		exit(0);
 	argv = ft_split(argv[1], ' ');
-	while (argv[i] != '\0')
+	while (argv[i] != NULL)
 		i++;
 	*argc = i;
 	return (argv);

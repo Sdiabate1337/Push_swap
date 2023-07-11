@@ -47,7 +47,7 @@ void	ft_pa(t_Stack *stack_a, t_Stack *stack_b);
 void	ft_rr(t_Stack *stack_a, t_Stack *stack_b);
 void	ft_rrr(t_Stack *stack_a, t_Stack *stack_b);
 
-void	ft_freeParam(char **param);
+void	ft_free_stack(t_Stack *stack);
 int		ft_has_duplicate(char *argv[]);
 void	ft_error(void);
 int		ft_is_zero(char *arg);
