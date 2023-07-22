@@ -34,7 +34,6 @@ int	main(int argc, char **argv)
 	int		stack_a_size;
 	char	**param;
 
-	param = NULL;
 	if (argc < 2)
 		return (-1);
 	if (argc == 2)
@@ -46,6 +45,7 @@ int	main(int argc, char **argv)
 	stack_a = ft_create_stack_with_arg(argc, param);
 	stack_b = ft_new_stack(argc);
 	stack_a_size = stack_a->top + 1;
+	
 	if (is_sorted(stack_a))
 		return (0);
 	if (stack_a_size <= 10)
@@ -54,9 +54,8 @@ int	main(int argc, char **argv)
 		ft_complex_sort(stack_a, stack_b, stack_a_size);
 	ft_free_stack(stack_a);
 	ft_free_stack(stack_b);
-	//_CrtDumpMemoryLeaks();
+	while(1);
 	return (0);
-
 }
 /* check if there are an error then print "error" message
         * check if  certains paramètres ne sont pas des nombres

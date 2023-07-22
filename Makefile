@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -fsanitize=address
+FLAGS = -Wall -Wextra -Werror #-fsanitize=address -g
 SRC = main.c input_check.c create_stack.c utils.c utils2.c utils3.c \
 	  push.c rotate.c simple_sort.c complexe_sort.c reverse_rotate.c stack.c swap.c 
 

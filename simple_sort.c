@@ -32,11 +32,10 @@ int	find_highest_id(t_Stack *stack)
 	return (high_id);
 }
 
-
 void	ft_sort_tree(t_Stack **stack)
 {
 	t_Stack	*s;
-	int	high_id;
+	int		high_id;
 
 	s = *stack;
 	high_id = 0;
@@ -101,13 +100,3 @@ int	find_smallest_id(t_Stack *stack)
 	}
 	return (min_index);
 }
-/*
-    void ft_recu_pb(Stack *stack_b, Stack *stack ,int n)
-{
-    if (n <= 0)
-        return ;
-    ft_pb(stack_b, stack);
-    ft_recu_pb(stack_b, stack, n - 1);
-}
-
-*/

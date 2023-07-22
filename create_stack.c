@@ -37,5 +37,6 @@ t_Stack	*ft_create_stack_with_arg(int argc, char **param)
 		stack->items[++stack->top] = ft_atoi(param[i]);
 		i--;
 	}
+	//ft_freeParam(param);
 	return (stack);
 }

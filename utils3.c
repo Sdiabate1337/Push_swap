@@ -71,32 +71,13 @@ void	ft_error(void)
 	exit(3);
 }
 
-void ft_free_stack(t_Stack *stack)
+void	ft_free_stack(t_Stack *stack)
 {
-    if (stack != NULL)
-    {
-        if (stack->items != NULL)
-            free(stack->items);
-        free(stack);
-    }
+	if (stack != NULL)
+	{
+		if (stack->items != NULL)
+			free(stack->items);
+		free(stack);
+	}
 }
 
-/*
-    #include <stdlib.h>
-
-void	ft_freeParam(char **param)
-{
-    int i;
-
-    
-    i = 0;
-    if (param == NULL) {
-        return ;
-    }
-    while (param[i] != NULL) {
-        free(param[i]);
-        i++;
-    }
-    free(param);
-}
-*/

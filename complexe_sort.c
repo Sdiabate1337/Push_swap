@@ -19,6 +19,7 @@ void	ft_complex_sort(t_Stack *stack, t_Stack *stack_b, int size)
 
 	bit_num = 0;
 	max_num = size - 1;
+	
 	ft_simplify(&stack, size);
 	while ((max_num >> bit_num) != 0)
 		bit_num++;
@@ -67,6 +68,7 @@ void	ft_simplify(t_Stack **stack, int size)
 		cpy[i] = s->items[i];
 	ft_insert_sort(cpy, size);
 	ft_conver_2_sort_id(s->items, cpy, size);
+	free(cpy);
 }
 
 void	ft_conver_2_sort_id(int *ar1, int *ar2, int size)
